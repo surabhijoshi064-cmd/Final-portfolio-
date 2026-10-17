@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surabhi Joshi | Portfolio</title>
+
+    <style>
+        :root {
+            --background: #f7f8fc;
+            --surface: #ffffff;
+            --text: #20243a;
+            --muted: #626a80;
+            --accent: #6558d3;
+            --accent-light: #eeecff;
+            --border: #e4e6ef;
+            --shadow: 0 12px 35px rgba(36, 39, 70, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .container {
+            width: min(100% - 40px, 1000px);
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 64px 0 36px;
+            background:
+                radial-gradient(circle at top right, rgba(101, 88, 211, 0.18), transparent 35%),
+                linear-gradient(135deg, #ffffff, #f0efff);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .eyebrow {
+            margin: 0;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            line-height: 1.1;
+            letter-spacing: -0.05em;
+        }
+
+        .hero-description {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.15rem;
+        }
+
+        .hero-description strong {
+            color: var(--text);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.94);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 12px 0;
+        }
+
+        .nav-links a {
+            padding: 7px 13px;
+            border-radius: 20px;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        main {
+            padding: 28px 0 60px;
+        }
+
+        section {
+            padding: 40px 0;
+            scroll-margin-top: 80px;
+        }
+
+        section + section {
+            border-top: 1px solid var(--border);
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            font-size: clamp(1.7rem, 4vw, 2.2rem);
+            letter-spacing: -0.03em;
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+        .about-copy {
+            max-width: 720px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .card p {
+            margin: 10px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 4px 11px;
+            border-radius: 20px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: 700;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            padding: 13px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .skills-list strong {
+            color: var(--text);
+        }
+
+        .learning {
+            margin-top: 26px;
+            padding: 20px 24px;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            background: var(--accent-light);
+        }
+
+        .learning h3,
+        .learning p {
+            margin: 0;
+        }
+
+        .learning p {
+            margin-top: 5px;
+        }
+
+        .education-card {
+            margin-bottom: 16px;
+        }
+
+        .education-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-card p {
+            margin: 6px 0;
+        }
+
+        .education-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            margin-top: 10px;
+        }
+
+        address {
+            padding: 20px 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--muted);
+            font-style: normal;
+            line-height: 2;
+        }
+
+        address strong {
+            color: var(--text);
+        }
+
+        footer {
+            padding: 24px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 48px 0 30px;
+            }
+
+            .container {
+                width: min(100% - 28px, 1000px);
+            }
+
+            section {
+                padding: 32px 0;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container hero">
+            <p class="eyebrow">My Portfolio</p>
+            <h1>Surabhi Joshi</h1>
+            <p class="hero-description">
+                <strong>Front-End Developer</strong><br>
+                Creating engaging digital experiences
+            </p>
+        </div>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <div class="container nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#services">Services</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-copy">
+                <p>
+                    Hello! My name is <strong>Surabhi Joshi</strong>, a creative developer
+                    who enjoys building accessible, user-friendly websites. I turn ideas
+                    into simple and engaging digital experiences.
+                </p>
+                <p>
+                    I have experience in web design and development, and I’m always
+                    learning something new.
+                </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>
+                        A personal website created to showcase my skills, projects,
+                        and professional experience.
+                    </p>
+                    <p><strong>Technology:</strong> HTML, CSS</p>
+                    <span class="tag">Completed</span>
+                </article>
+
+                <article class="card">
+                    <h3>
+                        SIH: AI-Powered Email Threat Detection, GeoLocation &amp;
+                        Forensic Intelligence Platform
+                    </h3>
+                    <p>
+                        An SIH project focused on AI-powered email threat detection,
+                        geolocation, and forensic intelligence.
+                    </p>
+                    <p><strong>Technology:</strong> HTML and CSS</p>
+                    <span class="tag">Completed</span>
+                    <br>
+                    <a
+                        class="project-link"
+                        href="https://threatdetection.ai.studio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View SIH Project
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+
+            <ul class="skills-list">
+                <li><strong>HTML</strong> — Beginner</li>
+                <li><strong>Java</strong> — Intermediate</li>
+                <li><strong>Python</strong> — Intermediate</li>
+                <li><strong>C</strong> — Intermediate</li>
+                <li><strong>SQL</strong> — Beginner</li>
+            </ul>
+
+            <div class="learning">
+                <h3>Currently Learning</h3>
+                <p>Full Stack Development and building accessible, responsive websites.</p>
+            </div>
+        </section>
+
+        <section id="achievements">
+    <h2>Achievements</h2>
+
+    <article class="card">
+        <h3>SIH Project Certificate</h3>
+        <p>
+            Received a certificate for participating in the SIH project:
+            <strong>AI-Powered Email Threat Detection, GeoLocation &amp;
+            Forensic Intelligence Platform.</strong>
+        </p>
+        <a href="SIH_2026_Certificate_Surbhi Joshi.pdf" target="_blank" rel="noopener noreferrer">
+            View SIH Certificate
+        </a>
+    </article>
+        </section>
+
+        <section id="services">
+        <h2>Services</h2>
+
+        <div class="card-grid">
+        <article class="card">
+            <h3>Portfolio Websites</h3>
+            <p>
+                Simple personal websites to showcase your skills, projects,
+                and experience.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Basic Website Development</h3>
+            <p>
+                Building webpages using HTML and CSS, with a focus on clear
+                layouts and easy-to-use navigation.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Responsive Design</h3>
+            <p>
+                Creating layouts that adapt to different screen sizes,
+                including phones, tablets, and computers.
+            </p>
+        </article>
+        </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+
+            <article class="card education-card">
+                <h3>10th Grade</h3>
+                <p><strong>School:</strong> St. Gabriel Convent School</p>
+                <span class="tag">2022–2023</span>
+                <div class="education-links">
+                    <a href="10%20marksheet.ar.jpeg">View 10th Marksheet</a>
+                </div>
+            </article>
+
+            <article class="card education-card">
+                <h3>12th Grade</h3>
+                <p><strong>School:</strong> New Era Academy</p>
+                <span class="tag">2024–2025</span>
+                <div class="education-links">
+                    <a href="12marksheet%20.ar..jpeg">View 12th Marksheet</a>
+                </div>
+            </article>
+
+            <article class="card education-card">
+                <h3>BTech CSE [AI/ML]</h3>
+                <p><strong>University:</strong> Shri Ramswaroop Memorial University</p>
+                <p>Currently in year 2<sup>nd</sup>.</p>
+                <div class="education-links">
+                    <a href="SRMU%201%20sem.pdf">View 1st Semester Marksheet</a>
+                    <a href="SRMU%202%20sem.pdf">View 2nd Semester Marksheet</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>I’m open to freelance projects and new opportunities.</p>
+
+            <address>
+                <strong>Email:</strong>
+                <a href="mailto:surabhijoshi064@gmail.com">surabhijoshi064@gmail.com</a><br>
+                <strong>Phone:</strong>
+                <a href="tel:+11234567890">+1 (123) 456-7890</a><br>
+                <strong>Location:</strong> Uttar Pradesh, India
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Thank you for visiting my portfolio!</p>
+            <p><small>© 2026 Surabhi Joshi</small></p>
+        </div>
+    </footer>
+</body>
+</html>
