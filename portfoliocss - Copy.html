@@ -62,9 +62,21 @@
 
         .hero {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 14px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            
+        }
+
+        .profile-photo {
+            width:40px;
+            height: 140px;
+            flex: 0 0 140px;
+            object-fit: cover;
+            object-position: center;
+            border: 4px solid var(--surface);
+            border-radius: 50%;
+            box-shadow: var(--shadow);
         }
 
         .eyebrow {
@@ -272,6 +284,14 @@
         }
 
         @media (max-width: 600px) {
+            .hero{
+                gap: 16px;
+            }
+            .profile-photo {
+            width: 100px;
+            height: 100px;
+            flex-basis: 100px;
+            }
             header {
                 padding: 48px 0 30px;
             }
@@ -294,13 +314,25 @@
 <body>
     <header>
         <div class="container hero">
-            <p class="eyebrow">My Portfolio</p>
-            <h1>Surabhi Joshi</h1>
-            <p class="hero-description">
-                <strong>Front-End Developer</strong><br>
-                Creating engaging digital experiences
-            </p>
-        </div>
+    <div class="hero-content">
+        <p class="eyebrow">My Portfolio</p>
+        <h1>Surabhi Joshi</h1>
+        <p class="hero-description">
+            <strong>Front-End Developer</strong><br>
+            Creating engaging digital experiences
+        </p>
+    </div>
+
+    <!-- Small profile picture -->
+    <img
+        class="profile-photo"
+        src="profile-photo.jpg.png"
+        alt="Portrait of Surabhi Joshi"
+        width="140"
+        height="140"
+    >
+    </div>
+        
     </header>
 
     <nav aria-label="Main navigation">
